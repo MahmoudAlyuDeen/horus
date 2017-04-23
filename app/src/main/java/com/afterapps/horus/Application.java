@@ -5,11 +5,19 @@ package com.afterapps.horus;
  */
 
 
+import com.afterapps.horus.model.StocksJobCreator;
+import com.evernote.android.job.JobManager;
+
+import io.realm.Realm;
+
 public class Application extends android.app.Application {
 
     @Override
-        public void onCreate() {
+    public void onCreate() {
         super.onCreate();
+        JobManager.create(this).addJobCreator(new StocksJobCreator());
+        Realm.init(this);
+
         //todo: enable un-comment out this before release
 //        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
 //            @Override

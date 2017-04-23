@@ -1,12 +1,24 @@
 <resources>
     <string name="app_name">Stock Hawk</string>
+
+    <!--placeholders-->
     <string name="placeholder">Placeholder</string>
+    <string name="placeholder_numbers">0.00</string>
 
     <!--main screen-->
+    <string name="main_empty_state">Tap the + to add your first stock</string>
+    <string name="main_add">Add stock</string>
 
     <!--information-->
 
     <!--errors and warnings-->
     <string name="error_connection">Can\'t connect to the internet</string>
     <string name="error_loading">Couldn\'t perform the requested action</string>
+    <string name="message_stock_deleted_format">Stock %1$s doesn\'t exist</string>
+    <string name="dialog_title_add_stock">Add stock</string>
+    <string name="dialog_content_add_stock">Enter the stock\'s symbol</string>
+    <string name="hint_symbol">Enter symbol. Example: \"GOOG\"</string>
+    <string name="emoty_string"/>
+    <string name="percentage_format">%1$s \%</string>
+    <string name="message_offline">You are offline, will retry automatically</string>
 </resources>
