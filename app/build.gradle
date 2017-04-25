@@ -45,4 +45,6 @@ dependencies {
     compile 'com.zsoltsafrany:needle:1.0.0'
     compile 'io.realm:android-adapters:2.0.0'
     compile 'com.evernote:android-job:1.1.9'
+    compile 'com.github.PhilJay:MPAndroidChart-Realm:v2.0.2@aar'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'
 }

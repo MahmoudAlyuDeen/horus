@@ -1,16 +1,20 @@
 package com.afterapps.horus.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.afterapps.horus.Constants;
 import com.afterapps.horus.R;
 import com.afterapps.horus.beans.Stock;
+import com.afterapps.horus.history.HistoryActivity;
 
 import java.text.DecimalFormat;
 
@@ -61,6 +65,8 @@ class StocksAdapter extends RealmRecyclerViewAdapter<Stock, StocksAdapter.StockV
         TextView mItemStockChangeAbsTextView;
         @BindView(R.id.item_stock_parent)
         RelativeLayout mItemStockParent;
+        @BindView(R.id.item_stock_direction_image_view)
+        ImageView mItemStockDirectionImageView;
 
         StockViewHolder(View itemView) {
             super(itemView);
@@ -70,17 +76,37 @@ class StocksAdapter extends RealmRecyclerViewAdapter<Stock, StocksAdapter.StockV
 
         void setStock(Stock stock) {
             DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            boolean isChangePositive = stock.getChangeAbs() > 0;
+            String priceChangePrefix = context.getString(isChangePositive ?
+                    R.string.prefix_plus : R.string.prefix_minus);
+            String currencySign = context.getString(R.string.currency_sing_dollar);
+            String absoluteChange = decimalFormat.format(stock.getChangeAbs());
+            String percentageChange = decimalFormat.format(stock.getChangePer());
+            String price = decimalFormat.format(stock.getPrice());
             mItemStockSymbolTextView.setText(stock.getSymbol());
-            mItemStockPriceTextView.setText(decimalFormat.format(stock.getPrice()));
-            mItemStockChangeAbsTextView.setText(decimalFormat.format(stock.getChangeAbs()));
+            mItemStockPriceTextView.setText(
+                    String.format(context.getString(R.string.stock_price_format), currencySign, price));
+            mItemStockChangeAbsTextView.setText(
+                    String.format(context.getString(R.string.absolute_change_format), priceChangePrefix, currencySign, absoluteChange));
             mItemStockChangePerTextView.setText(
-                    String.format(context.getString(R.string.percentage_format),
-                            decimalFormat.format(stock.getChangePer())));
+                    String.format(context.getString(R.string.percentage_change_format), priceChangePrefix, percentageChange));
+            mItemStockDirectionImageView.setImageResource(isChangePositive ? R.drawable.ic_up : R.drawable.ic_down);
         }
 
         @Override
         public void onClick(View v) {
-
+            switch (v.getId()) {
+                case R.id.item_stock_parent:
+                    if (getData() != null) {
+                        Stock stock = getData().get(getLayoutPosition());
+                        if (stock != null && stock.isValid()) {
+                            Intent history = new Intent(context, HistoryActivity.class);
+                            history.putExtra(Constants.HISTORY_EXTRA_SYMBOL, stock.getSymbol());
+                            context.startActivity(history);
+                        }
+                    }
+                    break;
+            }
         }
     }
 

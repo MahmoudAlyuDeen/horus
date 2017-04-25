@@ -7,6 +7,8 @@ package com.afterapps.horus;
 @SuppressWarnings("unused")
 public class Constants {
 
+    public static final String HISTORY_EXTRA_SYMBOL = "historyExtraSymbol";
+
     private Constants() {
     }
 

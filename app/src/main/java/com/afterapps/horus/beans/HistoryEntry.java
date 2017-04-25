@@ -11,10 +11,19 @@ import io.realm.annotations.PrimaryKey;
 public class HistoryEntry extends RealmObject {
 
     @PrimaryKey
+    private String primaryKey;
     private long timestamp;
     @Index
     private String symbol;
-    float close;
+    private float close;
+
+    public String getPrimaryKey() {
+        return primaryKey;
+    }
+
+    public void setPrimaryKey(String primaryKey) {
+        this.primaryKey = primaryKey;
+    }
 
     public float getClose() {
         return close;

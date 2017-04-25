@@ -47,6 +47,7 @@ public class StocksJob extends Job {
                 } else {
                     showOfflineMessage();
                     realm.close();
+                    EventBus.getDefault().post(new JobFinishedEvent());
                     return Result.RESCHEDULE;
                 }
             }
@@ -81,7 +82,7 @@ public class StocksJob extends Job {
                 try {
                     saveHistory(yahooStock.getHistory(), stock.getSymbol(), realm);
                 } catch (IOException ignored) {
-                    //exception will never be called as history is loaded with the stock
+                    //exception will never be called as history is side loaded with the stock
                 }
             }
         });
@@ -120,6 +121,7 @@ public class StocksJob extends Job {
             historyEntry.setSymbol(symbol);
             historyEntry.setTimestamp(historicalQuote.getDate().getTimeInMillis());
             historyEntry.setClose(historicalQuote.getClose().floatValue());
+            historyEntry.setPrimaryKey(historicalQuote.getDate() + symbol);
             realm.copyToRealmOrUpdate(historyEntry);
         }
     }

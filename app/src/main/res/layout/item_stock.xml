@@ -10,13 +10,13 @@
     android:padding="@dimen/simple_padding_large">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:paddingEnd="@dimen/simple_padding_large"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@+id/item_stocks_change_parent"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/simple_padding_large"
         tools:ignore="RtlSymmetry">
 
         <TextView
@@ -45,8 +45,9 @@
         android:id="@+id/item_stocks_change_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/simple_padding_large"
+        android:layout_toStartOf="@+id/item_stock_direction_image_view"
         android:orientation="vertical">
 
         <TextView
@@ -66,5 +67,13 @@
             android:textSize="@dimen/text_size_secondary"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_stock_direction_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        tools:ignore="ContentDescription"/>
 
 </RelativeLayout>

@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Stock Hawk</string>
+    <string name="currency_sing_dollar">د.أ</string>
+    <string name="dialog_content_add_stock">أدخل اسم الشركة</string>
+    <string name="dialog_title_add_stock">إضافة شركة</string>
+    <string name="error_connection">فشل الإتصال بالانترنت. سيتم إعادة المحاولة</string>
+    <string name="error_loading">لم نتمكن من اتمام طلبك</string>
+    <string name="history_title_format">تاريخ %1$s</string>
+    <string name="absolute_change_format">%1$s%3$s%2$s</string>
+    <string name="stock_price_format">%2$s%1$s</string>
+    <string name="main_add">إضافة شركة</string>
+    <string name="message_offline">فشل الإتصال بالانترنت. سيتم إعادة المحاولة</string>
+    <string name="percentage_change_format">%1$s%2$s٪</string>
+    <string name="placeholder_numbers">٠,٠٠</string>
+    <string name="hint_symbol">اسم الشركة</string>
+    <string name="message_stock_deleted_format">لا يوجد شركة بإسم: %1$s</string>
+    <string name="main_empty_state">قم بإضافة شركة من زر + أعلى اليمين</string>
 </resources>

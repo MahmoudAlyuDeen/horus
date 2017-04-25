@@ -54,25 +54,20 @@ public class MainActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(mMainToolbar);
+        realm = Realm.getDefaultInstance();
         setupSwipeRefresh();
         if (savedInstanceState == null) {
             onRefresh();
         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        realm.close();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        realm = Realm.getDefaultInstance();
         EventBus.getDefault().register(this);
         displayStocks();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
+        EventBus.getDefault().unregister(this);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -130,7 +125,7 @@ public class MainActivity
                         .title(R.string.dialog_title_add_stock)
                         .content(R.string.dialog_content_add_stock)
                         .inputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS)
-                        .input(R.string.hint_symbol, R.string.emoty_string, false,
+                        .input(R.string.hint_symbol, R.string.empty_string, false,
                                 new MaterialDialog.InputCallback() {
                                     @Override
                                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {

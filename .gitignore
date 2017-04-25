@@ -7,12 +7,9 @@
 /build
 /captures
 .externalNativeBuild
-/app/src/androidTest/java/com/yallawain/yallawain/
-/app/src/test/java/com/yallawain/yallawain/
-/.idea/dictionaries/mahmoudalyudeen.xml
 .idea/modules.xml
 .idea/runConfigurations.xml
 app/libs/
 app/src/androidTest/
-app/src/main/res/drawable/
 app/src/test/
+.idea/dictionaries/
