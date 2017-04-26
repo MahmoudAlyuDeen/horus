@@ -36,5 +36,5 @@ Udacity Android Development Nanodegree project.
 ![](/screenshots/home_english.png)
 ![](/screenshots/charts_english.png)
 ![](/screenshots/homescreen_widget.png)
-![](/screenshots/home_araic.png)
+![](/screenshots/home_arabic.png)
 ![](/screenshots/charts_arabic.png)
