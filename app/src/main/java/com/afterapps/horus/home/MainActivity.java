@@ -27,6 +27,8 @@ import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+import static com.afterapps.horus.Constants.CRASHED_FLAG;
+
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public class MainActivity
         extends BaseActivity<MainView, MainPresenter>
@@ -59,6 +61,9 @@ public class MainActivity
         setupSwipeRefresh();
         if (savedInstanceState == null) {
             onRefresh();
+            if (getIntent().getBooleanExtra(CRASHED_FLAG, false)) {
+                showCrashedMessage();
+            }
         }
         EventBus.getDefault().register(this);
         displayStocks();
@@ -79,7 +84,7 @@ public class MainActivity
 
     private void displayStocks() {
         RealmResults<Stock> stocks = realm.where(Stock.class)
-                .equalTo("handled", true)
+                .equalTo(getString(R.string.ATTRIBUTE_HANDLED), true)
                 .findAll();
         StocksAdapter stocksAdapter = new StocksAdapter(stocks, this);
         mMainRecycler.setAdapter(stocksAdapter);
@@ -120,7 +125,7 @@ public class MainActivity
                 new MaterialDialog.Builder(this)
                         .title(R.string.dialog_title_add_stock)
                         .content(R.string.dialog_content_add_stock)
-                        .inputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS)
+                        .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS)
                         .input(R.string.hint_symbol, R.string.empty_string, false,
                                 new MaterialDialog.InputCallback() {
                                     @Override
@@ -138,7 +143,7 @@ public class MainActivity
 
     private void handleNewSymbol(final String symbol) {
         Stock stock = realm.where(Stock.class)
-                .equalTo("symbol", symbol)
+                .equalTo(getString(R.string.ATTRIBUTE_SYMBOL), symbol)
                 .findFirst();
         if (stock != null) {
             return;

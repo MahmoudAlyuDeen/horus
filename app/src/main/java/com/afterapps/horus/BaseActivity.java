@@ -75,4 +75,7 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
         Toast.makeText(this, R.string.error_loading, Toast.LENGTH_SHORT).show();
     }
 
+    protected void showCrashedMessage() {
+        Toast.makeText(this, R.string.message_crashed, Toast.LENGTH_SHORT).show();
+    }
 }

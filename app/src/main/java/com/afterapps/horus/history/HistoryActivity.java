@@ -63,22 +63,23 @@ public class HistoryActivity
 
     private void displayHistory(String symbol) {
         final RealmResults<HistoryEntry> historyEntries = realm.where(HistoryEntry.class)
-                .equalTo("symbol", symbol)
-                .findAllSorted("timestamp");
+                .equalTo(getString(R.string.ATTRIBUTE_SYMBOL), symbol)
+                .findAllSorted(getString(R.string.ATTRIBUTE_TIMESTAMP));
         List<BarEntry> barEntries = new ArrayList<>(0);
         for (float i = 0; i < historyEntries.size(); i++) {
             HistoryEntry historyEntry = historyEntries.get((int) i);
             BarEntry barEntry = new BarEntry(i, historyEntry.getClose());
             barEntries.add(barEntry);
         }
-        BarDataSet barDataSet = new BarDataSet(barEntries, "");
+        BarDataSet barDataSet = new BarDataSet(barEntries, getString(R.string.empty_string));
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         BarData data = new BarData(barDataSet);
         XAxis xAxis = mHistoryBarChart.getXAxis();
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                return DateFormat.format("MMMM", historyEntries.get((int) value).getTimestamp()).toString();
+                return DateFormat.format(getString(R.string.format_months),
+                        historyEntries.get((int) value).getTimestamp()).toString();
             }
 
             @Override
@@ -88,7 +89,7 @@ public class HistoryActivity
         });
         mHistoryBarChart.setData(data);
         Description description = new Description();
-        description.setText("");
+        description.setText(getString(R.string.empty_string));
         mHistoryBarChart.setDescription(description);
         mHistoryBarChart.invalidate();
     }
@@ -103,5 +104,4 @@ public class HistoryActivity
     protected void displayLoadingState() {
 
     }
-
 }

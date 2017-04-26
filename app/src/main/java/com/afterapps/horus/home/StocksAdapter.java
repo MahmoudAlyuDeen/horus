@@ -75,7 +75,7 @@ class StocksAdapter extends RealmRecyclerViewAdapter<Stock, StocksAdapter.StockV
         }
 
         void setStock(Stock stock) {
-            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            DecimalFormat decimalFormat = new DecimalFormat(context.getString(R.string.format_price));
             boolean isChangePositive = stock.getChangeAbs() > 0;
             String priceChangePrefix = context.getString(isChangePositive ?
                     R.string.prefix_plus : R.string.prefix_minus);

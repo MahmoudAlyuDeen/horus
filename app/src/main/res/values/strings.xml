@@ -20,13 +20,21 @@
     <string name="absolute_change_format">%1$s%2$s%3$s</string>
     <string name="stock_price_format">%1$s%2$s</string>
     <string name="percentage_change_format">%1$s%2$s%%</string>
+    <string name="format_months" translatable="false">MMMM</string>
+    <string name="format_price" translatable="false">#.##</string>
 
     <!--errors and warnings-->
     <string name="error_connection">Can\'t connect to the internet</string>
     <string name="error_loading">Couldn\'t perform the requested action</string>
     <string name="message_stock_deleted_format">Stock %1$s doesn\'t exist</string>
     <string name="message_offline">You are offline, will retry automatically</string>
+    <string name="message_crashed">Recovered from crash; sorry :)</string>
 
     <!--history screen-->
     <string name="history_title_format">%1$s\'s history</string>
+
+    <!--attributes-->
+    <string name="ATTRIBUTE_SYMBOL" translatable="false">symbol</string>
+    <string name="ATTRIBUTE_TIMESTAMP" translatable="false">timestamp</string>
+    <string name="ATTRIBUTE_HANDLED" translatable="false">handled</string>
 </resources>
