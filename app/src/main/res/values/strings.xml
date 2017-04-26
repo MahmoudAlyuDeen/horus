@@ -29,7 +29,4 @@
 
     <!--history screen-->
     <string name="history_title_format">%1$s\'s history</string>
-
-    <!--widget-->
-    <string name="widget_empty_state">Tap to add your first stock</string>
 </resources>

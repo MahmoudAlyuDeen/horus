@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public class HistoryActivity
         extends BaseActivity<HistoryView, HistoryPresenter>
         implements HistoryView {
@@ -103,8 +104,4 @@ public class HistoryActivity
 
     }
 
-    @Override
-    protected void discardData() {
-
-    }
 }

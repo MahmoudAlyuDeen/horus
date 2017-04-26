@@ -58,24 +58,14 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
 
     @Override
     public boolean onSupportNavigateUp() {
-        if (userInteracted) {
-            showDataLossConfirmation();
-        } else {
-            finish();
-        }
+        finish();
         return true;
     }
 
     @Override
     public void onBackPressed() {
-        if (userInteracted) {
-            showDataLossConfirmation();
-        } else {
-            finish();
-        }
+        finish();
     }
-
-    protected abstract void discardData();
 
     public void showConnectionError() {
         Toast.makeText(this, R.string.error_connection, Toast.LENGTH_SHORT).show();
@@ -85,44 +75,4 @@ public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>>
         Toast.makeText(this, R.string.error_loading, Toast.LENGTH_SHORT).show();
     }
 
-    //todo: uncomment and configure when implementing authentication
-    public void showAuthorizationError() {
-//        new MaterialDialog.Builder(this)
-//                .title(R.string.dialog_auth_title)
-//                .content(R.string.dialog_auth_message)
-//                .positiveText(R.string.dialog_auth_positive_button)
-//                .theme(Resources.Theme.DARK)
-//                .cancelable(false)
-//                .onPositive(new MaterialDialog.SingleButtonCallback() {
-//                    @Override
-//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-//                        ((Application) getApplication()).performSignOut(BaseActivity.this);
-//                    }
-//                })
-//                .autoDismiss(true)
-//                .show();
-    }
-
-    protected void showDataLossConfirmation() {
-//        new MaterialDialog.Builder(this)
-//                .title(R.string.dialog_date_loss_title)
-//                .content(R.string.dialog_date_loss_message)
-//                .positiveText(R.string.dialog_date_loss_positive_button)
-//                .negativeText(R.string.dialog_date_loss_negative_button)
-//                .theme(Theme.DARK)
-//                .positiveColor(ContextCompat.getColor(this, R.color.colorRed))
-//                .onPositive(new MaterialDialog.SingleButtonCallback() {
-//                    @Override
-//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-//                        discardData();
-//                    }
-//                })
-//                .onNegative(new MaterialDialog.SingleButtonCallback() {
-//                    @Override
-//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-//                        dialog.dismiss();
-//                    }
-//                })
-//                .show();
-    }
 }

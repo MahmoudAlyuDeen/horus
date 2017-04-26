@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public class MainActivity
         extends BaseActivity<MainView, MainPresenter>
         implements MainView, SwipeRefreshLayout.OnRefreshListener {
@@ -94,11 +95,6 @@ public class MainActivity
     @Override
     protected void displayLoadingState() {
         mMainSwipeRefresh.setRefreshing(isLoading);
-    }
-
-    @Override
-    protected void discardData() {
-
     }
 
     @Override

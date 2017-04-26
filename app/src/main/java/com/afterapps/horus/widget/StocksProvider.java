@@ -20,6 +20,7 @@ import io.realm.RealmResults;
  * Created by mahmoudalyudeen on 4/25/17.
  */
 
+@SuppressWarnings("CanBeFinal")
 public class StocksProvider implements RemoteViewsService.RemoteViewsFactory {
 
     private Context context;

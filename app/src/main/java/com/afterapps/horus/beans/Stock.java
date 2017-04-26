@@ -20,8 +20,8 @@ public class Stock extends RealmObject {
         return handled;
     }
 
-    public void setHandled(boolean handled) {
-        this.handled = handled;
+    public void setHandled() {
+        this.handled = true;
     }
 
     public String getSymbol() {

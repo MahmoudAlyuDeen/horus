@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
-    android:padding="@dimen/simple_padding_large">
+    android:padding="@dimen/simple_padding_large"
+    tools:ignore="Overdraw">
 
     <LinearLayout
         android:layout_width="match_parent"

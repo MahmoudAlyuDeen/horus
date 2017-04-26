@@ -16,5 +16,4 @@
     <string name="hint_symbol">اسم الشركة</string>
     <string name="message_stock_deleted_format">لا يوجد شركة بإسم: %1$s</string>
     <string name="main_empty_state">قم بإضافة شركة من زر + أعلى اليمين</string>
-    <string name="widget_empty_state">اضغط لإضافة شركة</string>
 </resources>

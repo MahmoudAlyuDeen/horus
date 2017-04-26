@@ -125,7 +125,7 @@ public class StocksJob extends Job {
         stock.setChangeAbs(yahooStock.getQuote().getChange().floatValue());
         stock.setChangePer(yahooStock.getQuote().getChangeInPercent().floatValue());
         stock.setPrice(yahooStock.getQuote().getPrice().floatValue());
-        stock.setHandled(true);
+        stock.setHandled();
         realm.copyToRealmOrUpdate(stock);
     }
 

@@ -8,6 +8,7 @@ import io.realm.annotations.PrimaryKey;
  * Created by mahmoudalyudeen on 4/22/17.
  */
 
+@SuppressWarnings("unused")
 public class HistoryEntry extends RealmObject {
 
     @PrimaryKey
