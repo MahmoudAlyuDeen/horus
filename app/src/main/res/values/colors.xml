@@ -9,8 +9,8 @@
     <color name="colorForeground">@color/colorWhite</color>
 
     <!--text colors-->
-    <color name="colorTextPrimary">#D9FFFFFF</color>
-    <color name="colorTextSecondary">#8CFFFFFF</color>
+    <color name="colorTextPrimary">#D9000000</color>
+    <color name="colorTextSecondary">#8C000000</color>
 
     <!--basic colors-->
     <color name="colorTransparent">#00000000</color>

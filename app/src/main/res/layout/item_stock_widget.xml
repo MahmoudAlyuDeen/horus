@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_stock_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:padding="@dimen/simple_padding_large">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/item_stocks_change_parent"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/simple_padding_large"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/item_stock_symbol_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/placeholder"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/text_size_primary"/>
+
+        <TextView
+            android:id="@+id/item_stock_price_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/placeholder_numbers"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/text_size_primary"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_stocks_change_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/simple_padding_large"
+        android:layout_toStartOf="@+id/item_stock_direction_image_view"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_stock_change_per_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_numbers"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/text_size_secondary"/>
+
+        <TextView
+            android:id="@+id/item_stock_change_abs_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_numbers"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/text_size_secondary"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/item_stock_direction_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        tools:ignore="ContentDescription"/>
+
+</RelativeLayout>

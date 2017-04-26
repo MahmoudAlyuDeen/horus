@@ -1,11 +1,15 @@
 package com.afterapps.horus.model;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import com.afterapps.horus.R;
 import com.afterapps.horus.beans.HistoryEntry;
 import com.afterapps.horus.beans.Stock;
+import com.afterapps.horus.widget.StocksProvider;
 import com.evernote.android.job.Job;
 
 import org.greenrobot.eventbus.EventBus;
@@ -47,14 +51,24 @@ public class StocksJob extends Job {
                 } else {
                     showOfflineMessage();
                     realm.close();
+                    updateHomeScreenWidget();
                     EventBus.getDefault().post(new JobFinishedEvent());
                     return Result.RESCHEDULE;
                 }
             }
         }
         realm.close();
+        updateHomeScreenWidget();
         EventBus.getDefault().post(new JobFinishedEvent());
         return Result.SUCCESS;
+    }
+
+    private void updateHomeScreenWidget() {
+        Context context = getContext().getApplicationContext();
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        ComponentName stocksWidget = new ComponentName(context, StocksProvider.class);
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(stocksWidget);
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_stocks_list_view);
     }
 
     private boolean isBadSymbol(yahoofinance.Stock yahooStock) {

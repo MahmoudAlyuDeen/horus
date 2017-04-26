@@ -109,5 +109,4 @@ class StocksAdapter extends RealmRecyclerViewAdapter<Stock, StocksAdapter.StockV
             }
         }
     }
-
 }
